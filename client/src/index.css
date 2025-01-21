@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  height: 120vh;
+}
+.navbar{
+  background-color: rgb(105, 71, 179) !important;
+}
+.resgister-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 3px gray;
+}
+.anticon svg{
+  font-size: 20px;
+  cursor: pointer;
+}
+.active-icon{
+  color: black;
+}
+.inactive-icon{
+  color: grey;
+}
+.switch-icon{
+  border: 1px solid rgba(0, 0, 0, 0.495);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
