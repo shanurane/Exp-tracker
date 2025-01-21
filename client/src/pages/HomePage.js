@@ -68,12 +68,15 @@ const HomePage = () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
         setLoading(true);
-        const res = await axios.post("/transactions/get-transection", {
-          userid: user._id,
-          frequency,
-          selectedDate,
-          type,
-        });
+        const res = await axios.post(
+          `${process.env.REACT_APP_URL}/transactions/get-transection`,
+          {
+            userid: user._id,
+            frequency,
+            selectedDate,
+            type,
+          }
+        );
         setLoading(false);
         setAllTransaction(res.data);
       } catch (error) {
@@ -87,17 +90,23 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.post("/transactions/delete-transection", {
-        transactionId: record._id,
-      });
+      await axios.post(
+        `${process.env.REACT_APP_URL}/transactions/delete-transection`,
+        {
+          transactionId: record._id,
+        }
+      );
       message.success("Transaction Deleted!");
       const user = JSON.parse(localStorage.getItem("user"));
-      const res = await axios.post("/transactions/get-transection", {
-        userid: user._id,
-        frequency,
-        selectedDate,
-        type,
-      });
+      const res = await axios.post(
+        `${process.env.REACT_APP_URL}/transactions/get-transection`,
+        {
+          userid: user._id,
+          frequency,
+          selectedDate,
+          type,
+        }
+      );
       setAllTransaction(res.data);
       setLoading(false);
     } catch (error) {
@@ -132,29 +141,38 @@ const HomePage = () => {
       setLoading(true);
       if (editable) {
         // Update transaction
-        await axios.post("/transactions/edit-transection", {
-          payload: { ...values, userid: user._id },
-          transactionId: editable._id,
-        });
+        await axios.post(
+          `${process.env.REACT_APP_URL}/transactions/edit-transection`,
+          {
+            payload: { ...values, userid: user._id },
+            transactionId: editable._id,
+          }
+        );
         message.success("Transaction Updated Successfully");
       } else {
         // Add new transaction
-        await axios.post("/transactions/add-transection", {
-          ...values,
-          userid: user._id,
-        });
+        await axios.post(
+          `${process.env.REACT_APP_URL}/transactions/add-transection`,
+          {
+            ...values,
+            userid: user._id,
+          }
+        );
         message.success("Transaction Added Successfully");
       }
       setLoading(false);
       handleCloseModal();
 
       // Refresh the transactions list
-      const res = await axios.post("/transactions/get-transection", {
-        userid: user._id,
-        frequency,
-        selectedDate,
-        type,
-      });
+      const res = await axios.post(
+        `${process.env.REACT_APP_URL}/transactions/get-transection`,
+        {
+          userid: user._id,
+          frequency,
+          selectedDate,
+          type,
+        }
+      );
       setAllTransaction(res.data);
     } catch (error) {
       setLoading(false);
