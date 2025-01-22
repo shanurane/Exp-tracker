@@ -22,7 +22,7 @@ const Header = () => {
       <nav className="text-white bg-gradient-to-r from-zinc-500 via-zinc-600 to-zinc-800 focus:ring-4 focus:outline-none focus:ring-zinc-400 dark:focus:ring-zinc-800 shadow-lg shadow-zinc-500/50 dark:shadow-lg dark:shadow-zinc-800/80 font-medium text-sm px-4 py-2.5 text-center me-2 mb-2">
         <div className="">
           <button
-            className="sm:hidden border-[1.5px] border-white rounded-md text-white px-3 py-2"
+            className="hidden border-[1.5px] border-white rounded-md text-white px-3 py-2"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo01"
@@ -33,10 +33,13 @@ const Header = () => {
             Menu
           </button>
           <div
-            className="hidden sm:flex justify-between items-center"
+            className="flex sm:justify-between justify-end items-center"
             id="navbarTogglerDemo01"
           >
-            <Link className="navbar-brand font-bold text-xl text-white" to="/">
+            <Link
+              className="hidden sm:block navbar-brand font-bold text-xl text-white"
+              to="/"
+            >
               Expense Tracker
             </Link>
             <ul className="flex gap-4 items-center justify-center">

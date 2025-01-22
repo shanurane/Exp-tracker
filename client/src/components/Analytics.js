@@ -30,9 +30,9 @@ const Analytics = ({ allTransaction }) => {
   const saving = IncomeTrans - ExpenseTrans;
   return (
     <div className="" style={{ paddingBottom: "60px" }}>
-      <div className="w-full flex flex-row justify-around">
+      <div className="w-full flex md:flex-row flex-col justify-around">
         {/* <div className=""> */}
-        <div className="w-1/2 px-5 py-3 pb-5 bg-white m-4 rounded-xl">
+        <div className="md:w-1/2 w-full px-5 py-3 pb-5 bg-white m-4 rounded-xl">
           <div className="p-2 text-lg">Total Transactions : {total}</div>
           <div className="p-2">
             <h5 className="text-success">Income : {IncomeTrans.length}</h5>
@@ -55,7 +55,7 @@ const Analytics = ({ allTransaction }) => {
         </div>
         {/* </div> */}
         {/* <div className=""> */}
-        <div className="w-1/2 px-5 py-3 pb-5 bg-white m-4 rounded-xl">
+        <div className="md:w-1/2 w-full px-5 py-3 pb-5 bg-white m-4 rounded-xl">
           <div className="p-2 text-lg">
             Total Savings : {totalIncomeTurn - totalExpenseTurn}
           </div>
@@ -80,8 +80,8 @@ const Analytics = ({ allTransaction }) => {
         </div>
         {/* </div> */}
       </div>
-      <div className="w-full flex justify-around">
-        <div className="w-1/2 bg-white rounded-xl p-4 m-4">
+      <div className="w-full flex md:flex-row flex-col justify-around">
+        <div className="md:w-1/2 w-full bg-white rounded-xl p-4 m-4">
           <h4 className="p-2 text-lg">Categorywise Income</h4>
           {categories.map((category) => {
             const amount = allTransaction
@@ -106,7 +106,7 @@ const Analytics = ({ allTransaction }) => {
             );
           })}
         </div>
-        <div className="w-1/2 bg-white p-4 rounded-xl m-4">
+        <div className="md:w-1/2 w-full bg-white p-4 rounded-xl m-4">
           <h4 className="p-2 text-lg">Categorywise Expense</h4>
           {categories.map((category) => {
             const amount = allTransaction

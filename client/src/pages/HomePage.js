@@ -183,7 +183,7 @@ const HomePage = () => {
   return (
     <Layout>
       {loading && <Spinner />}
-      <div className="w-full flex justify-around">
+      <div className="w-full flex md:flex-row flex-col justify-around">
         <div className="flex flex-col justify-center items-center">
           <h6 className="text-md font-bold py-2">Select Frequency</h6>
           <div className="flex items-center">
@@ -251,7 +251,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="content">
+      <div className="content overflow-x-scroll w-full">
         {viewData === "table" ? (
           <Table
             columns={columns}
